@@ -7,6 +7,9 @@ module.exports = {
     authors: () => pool.query('SELECT * FROM authors').then(r => r.rows),
     author: (_, { id }) => pool.query('SELECT * FROM authors WHERE id = $1', [id]).then(r => r.rows[0] ?? null),
   },
+  Author: {
+    posts: (author) => pool.query('SELECT * FROM posts WHERE author_id = $1 ORDER BY published_at DESC', [author.id]).then(r => r.rows),
+  },
   Post: {
     author: (post) => pool.query('SELECT * FROM authors WHERE id = $1', [post.author_id]).then(r => r.rows[0]),
     comments: (post) => pool.query('SELECT * FROM comments WHERE post_id = $1', [post.id]).then(r => r.rows),

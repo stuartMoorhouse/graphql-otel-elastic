@@ -105,7 +105,7 @@ graphql_request() {
 # ── Queries and mutations ─────────────────────────────────────────────────────
 query_posts() {
   graphql_request "posts (list)" \
-    '{"query":"{ posts { id title author { name } createdAt } }"}'
+    '{"query":"{ posts { id title author { name } publishedAt } }"}'
 }
 
 query_post_with_detail() {
