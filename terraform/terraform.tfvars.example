@@ -1,0 +1,15 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# Run: cp terraform.tfvars.example terraform.tfvars
+
+# ── Required: Elastic Cloud API key ──────────────────────────────────────────
+# Set this as an environment variable before running terraform:
+#   export EC_API_KEY="your-elastic-cloud-api-key"
+# Create one at: https://cloud.elastic.co/account/keys
+
+# ── Optional overrides (defaults shown) ─────────────────────────────────────
+
+# location       = "East US"
+# prefix         = "graphql-otel"
+# vm_size        = "Standard_B2s"
+# admin_username = "azureuser"
+# elastic_region = "azure-eastus2"
