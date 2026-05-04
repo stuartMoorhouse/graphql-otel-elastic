@@ -4,6 +4,7 @@ const { OTLPMetricExporter } = require('@opentelemetry/exporter-metrics-otlp-grp
 const { PeriodicExportingMetricReader } = require('@opentelemetry/sdk-metrics');
 const { GraphQLInstrumentation } = require('@opentelemetry/instrumentation-graphql');
 const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
+const { PgInstrumentation } = require('@opentelemetry/instrumentation-pg');
 const { Resource } = require('@opentelemetry/resources');
 const { SEMRESATTRS_SERVICE_NAME, SEMRESATTRS_SERVICE_VERSION } = require('@opentelemetry/semantic-conventions');
 const { credentials, Metadata } = require('@grpc/grpc-js');
@@ -61,6 +62,7 @@ const sdk = new NodeSDK({
       depth: 3,
       allowValues: true,
     }),
+    new PgInstrumentation(),
   ],
 });
 
